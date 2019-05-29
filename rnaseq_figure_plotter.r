@@ -25,6 +25,7 @@ parser$add_argument('-zs', '--zscore',help = 'default off; apply Z-score transfo
 parser$add_argument('-x', '--xaxis',help = 'default samples; choose x-axis (gene or sample)',default = "sample")
 parser$add_argument('-z', '--zaxis',help = 'default gene; choose fill, color, or shape (gene or sample)',default = "gene")
 parser$add_argument('-c', '--color',help = 'default 1; choose color type (0-10)', default = 1, type = "integer")
+parser$add_argument('-cst', '--custom_color',help = 'default None; customize color scales. Split colors by space. Example; red white blue green yellow', default = "0", nargs= '+')
 parser$add_argument('-ls', '--letter_size',help = 'default 8 10; type text and title size of legend and axis, respectively. Split two number by space. Example; 20 24', default = c(8,10),type = "double", nargs= 2)
 parser$add_argument('-f', '--figure_save_format',help = 'default pdf; choose format of figures (eps, ps, tex (pictex), pdf, jpeg, tiff, png, bmp, svg)', default = 'pdf')
 parser$add_argument('-p', '--plot_size',help = 'default 7 7; type width and height of figure. Split two number by space. Example; 10 12 ', default = c(7,7), type = "double", nargs= 2)
@@ -36,7 +37,8 @@ parser$add_argument('-a', '--axis_change',help = 'default off; flip axis in figu
 parser$add_argument('-lp', '--legend_position',help = 'default right; choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). This function is for every plots excepts heatmap and scatter.', default = "right")
 parser$add_argument('-gp', '--geom_position',help = 'default 1; choose visualize types (geom position) from 1-4 in bar, density, and histogram', default = 1, type = "integer")
 parser$add_argument('-cs', '--cluster_select',help = 'default on on; apply column and row cluster function for heatmap (on or off). Column is first and row is second, split two factor(on or off) by space. Example; on off',default = c('on','on'), nargs= 2)
-parser$add_argument('-ss', '--scatter_select',help = 'default None; type column of two samples for comparison in dot plot. Split samples by space. (example; sample1 sample2)', nargs= 2)
+parser$add_argument('-ss', '--scatter_select',help = 'default None; type column of two samples for comparison in dot plot. Split samples by space. Example; sample1 sample2', nargs= 2)
+
 
 #parameter combine
 args <- parser$parse_args()
@@ -62,7 +64,7 @@ library("tidyverse")
 
 
 #version
-version <- "0.0.1"
+version <- "0.0.2"
 paste("You are using rnaseq_figure_plotter(R) version; ", version)
 
 
@@ -161,8 +163,10 @@ geom_position <- function() {if (args$geom_position == 1){
 
 #color palette selection
 #geom color
-palette_select_color <- function (){if (color == 1){
-                                return (scale_colour_hue())
+palette_select_color <- function (){if (args$custom_color[1] != "0"){
+                                        return (scale_colour_manual(values =args$custom_color ))
+                            }else if (color == 1){
+                                        return (scale_colour_hue())
                             }else if (color == 2){
                                 return (scale_colour_viridis_d(option = "C"))
                             }else if (color == 3){
@@ -185,7 +189,9 @@ palette_select_color <- function (){if (color == 1){
                         }
 
 #geom fill
-palette_select_fill <- function (){if (color == 1){
+palette_select_fill <- function (){if (args$custom_color[1] != "0"){
+                                    return (scale_fill_manual(values =args$custom_color ))
+                            }else if (color == 1){
                                 return (scale_fill_hue())
                             }else if (color == 2){
                                 return (scale_fill_viridis_d(option = "C"))
@@ -208,26 +214,28 @@ palette_select_fill <- function (){if (color == 1){
                             }
                         }
 #pheatmap color
-col_heatmap <- function(){if (color == 1){
-				return (c("blue", "white", "red"))
+col_heatmap <- function(){if (args$custom_color[1] != "0"){
+                                return (args$custom_color )
+                            }else if (color == 1){
+                                return (c("blue", "white", "red"))
                             }else if (color == 2){
-				return (c("blue", "light yellow", "red"))
+                                return (c("blue", "light yellow", "red"))
                             }else if (color == 3){
-				return (c("dark green", "white", "red"))
+                                return (c("dark green", "white", "red"))
                             }else if (color == 4){
-				return (c("dark green","white" ,"purple"))
+                                return (c("dark green","white" ,"purple"))
                             }else if (color == 5){
-				return (c("black", "white", "red"))
+                                return (c("black", "white", "red"))
                             }else if (color == 6){
-				return (c("blue", "yellow"))
+                                return (c("blue", "yellow"))
                             }else if (color == 7){
-				return (c("white", "black"))
+                                return (c("white", "black"))
                             }else if (color == 8){
-				return (c("white", "red"))
+                                return (c("white", "red"))
                             }else if (color == 9){
-				return (c("white", "blue"))
+                                return (c("white", "blue"))
                             }else if (color == 10){
-				return (c("white", "green"))
+                                return (c("white", "green"))
                             }
                 }
 
