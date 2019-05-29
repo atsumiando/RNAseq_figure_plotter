@@ -37,7 +37,7 @@ parser$add_argument('-lp', '--legend_position',help = 'default right; choose leg
 parser$add_argument('-gp', '--geom_position',help = 'default 1; choose visualize types (geom position) from 1-4 in bar, density, and histogram', default = 1, type = "integer")
 parser$add_argument('-cs', '--cluster_select',help = 'default on on; apply column and row cluster function for heatmap (on or off). Column is first and row is second, split two factor(on or off) by space. Example; on off',default = c('on','on'), nargs= 2)
 parser$add_argument('-ss', '--scatter_select',help = 'default None; type column of two samples for comparison in dot plot. Split samples by space. Example; sample1 sample2', nargs= 2)
-parser$add_argument('-p', '--plot_size',help = 'default 10 10; type width and height of figure. Split two number by space. This function works for any plots excepts heatmap. Example; 10 12 ', default = c(7,7), type = "double", nargs= 2)
+parser$add_argument('-p', '--plot_size',help = 'default 7 7; type width and height of figure. Split two number by space. This function works for any plots excepts heatmap. Example; 10 12 ', default = c(7,7), type = "double", nargs= 2)
 
 #parameter combine
 args <- parser$parse_args()
