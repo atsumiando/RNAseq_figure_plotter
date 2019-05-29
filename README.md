@@ -6,8 +6,6 @@ Please type this code 'install.packages("library")' to install three libraies 'g
 
 It is R codes and use "Rscript rnaseq_figure_plotter.r -i input_file -t bar -o output_file -g gene_list_file  ... -c 5 -s 6" to run!
 
-If you have any questions, email me (andoapi@gmail.com).
-
 
 
 # parameter of rnaseq_figure_plotter
@@ -15,6 +13,8 @@ If you have any questions, email me (andoapi@gmail.com).
 Usage
 
 	Rscript rnaseq_figure_plotter.r -i input_file -t bar -o output_file -g gene_list_file  ... -c 5 -s 6
+
+help
 
 	HELP		-h, --help		show this help message and exit
 
@@ -61,7 +61,7 @@ Optional parameter for individual plot types
 
 	LEGEND_POSITION	-lp, --legend_position	default right; choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). This function works for any plots except heatmap and scatter.
 
-	GEOM_POSITION	-gp, --geom_position	default 1; choose plot visualize types (geom position) from 1-4 in bar, density, and histogram
+	GEOM_POSITION	-gp, --geom_position	default 1; choose plot visualize types (geom position) from 1-4 in bar, density, density_fill, and histogram
 
 	CLUSTER_SELECT	-cs, --cluster_select	default on on; apply column and row cluster function for heatmap (on or off). Column is first and row is second, split two factor(on or off) by space. Example; on off
 
@@ -255,13 +255,13 @@ Change x and y axis by on of (-a, --axis_change) function. This function is for 
 
 # change legend position (-lp, --legend_position)
 
-Choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). Default is right. This function works for any plots except heatmap.
+Choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). Default is right. This function works for any plots except heatmap and scatter.
 
 
 
 # change position in geom function for bar, density, and histogram (-gp, --geom_position)
 
-Choose plot visualize types (geom position) from 1-4 in bar, density, and histogram using ggplot2 position function (https://ggplot2.tidyverse.org/reference/position_dodge.html). 
+Choose plot visualize types (geom position) from 1-4 in bar, density, density_fill and histogram using ggplot2 position function (https://ggplot2.tidyverse.org/reference/position_dodge.html). 
 
 
 	settings	position	description
