@@ -45,7 +45,7 @@ General optional function
 
 	FIGURE_SAVE_FORMAT	-f, --figure_save_format		default pdf; choose format of figures (eps, ps, tex (pictex), pdf, jpeg, tiff, png, bmp, svg)
 
-	PLOT_SIZE	-p, -plot_size		default 7 7; type width and height of figure. Split two number by space. Example; 10 12
+	PLOT_SIZE	-p, -plot_size		default 10 10; type width and height of figure. Split two number by space. Example; 10 12
 
 
 Optional parameter for individual plot types
@@ -222,7 +222,7 @@ Provided save figure format. Default is pdf, you can also choose eps, ps, tex (p
 
 # change figure size (-p, --plot_size)
 
-Change width and height of figure, respectively. Split two number by space. Default is both width and height for 7. Example; 10 12
+Change width and height of figure, respectively. Split two number by space. Default is both width and height for 10. Example; 10 12
 
 
 
