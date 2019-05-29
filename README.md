@@ -12,56 +12,56 @@ If you have any questions, email me (andoapi@gmail.com).
 
 # parameter of rnaseq_figure_plotter
 
-HELP		-h, --help		show this help message and exit
+	HELP		-h, --help		show this help message and exit
 
 
 Required function
 
-INPUT		-i, --input		input file name
+	INPUT		-i, --input		input file name
 
-TYPE		-t, --type		choose plot types (bar, box, density, dot_color, dot_shape, heatmap, histogram, line, scatter, or violin)
+	TYPE		-t, --type		choose plot types (bar, box, density, dot_color, dot_shape, heatmap, histogram, line, scatter, or violin)
 
 
 General optional function
 
-OUTPUT		-o, --output		default output; output file name
+	OUTPUT		-o, --output		default output; output file name
 
-GENE		-g, --gene		file name of specific gene ID list; generate "output"_gene_selection.txt file
+	GENE		-g, --gene		file name of specific gene ID list; generate "output"_gene_selection.txt file
 
-LOG2		-l, --log		default 0; calculate log value (log2; 2, log10; 10, loge; e)
+	LOG2		-l, --log		default 0; calculate log value (log2; 2, log10; 10, loge; e)
 
-LOG2_NUMBER	-lgn, --log_number	default 0.000000001; add number to avoid -inf for log value
+	LOG2_NUMBER	-lgn, --log_number	default 0.000000001; add number to avoid -inf for log value
 
-ZSCORE		-zs, --zscore		default off; apply Z-score transformation in gene (on or off). --log function should be 0 to apply --zscore function.  
+	ZSCORE		-zs, --zscore		default off; apply Z-score transformation in gene (on or off). --log function should be 0 to apply --zscore function.  
 
-XAXIS		-x, --xaxis		default samples; choose x-axis (gene or sample)
+	XAXIS		-x, --xaxis		default samples; choose x-axis (gene or sample)
 
-ZAXIS		-z, --zaxis		default gene; choose fill, color, or shape (gene or sample)
+	ZAXIS		-z, --zaxis		default gene; choose fill, color, or shape (gene or sample)
 
-COLOR		-c, --color		default 1; choose color type (1-10)
+	COLOR		-c, --color		default 1; choose color type (1-10)
 
-LETTER_SIZE	-ls, --letter_size	default 8 10; type text and title size of legend and axis, respectively. Split two number by space. Example; 20 24
+	LETTER_SIZE	-ls, --letter_size	default 8 10; type text and title size of legend and axis, respectively. Split two number by space. Example; 20 24
 
-FIGURE_SAVE_FORMAT	-f, --figure_save_format		default pdf; choose format of figures (eps, ps, tex (pictex), pdf, jpeg, tiff, png, bmp, svg)
+	FIGURE_SAVE_FORMAT	-f, --figure_save_format		default pdf; choose format of figures (eps, ps, tex (pictex), pdf, jpeg, tiff, png, bmp, svg)
 
-PLOT_SIZE	-p, -plot_size		default 7 7; type width and height of figure. Split two number by space. Example; 10 12
+	PLOT_SIZE	-p, -plot_size		default 7 7; type width and height of figure. Split two number by space. Example; 10 12
 
 
 Optional parameter for individual plot types
 
-STYLE		-s, --style		default 4; choose backgroud of figures (1-7). This function is for every plots excepts heatmap.
+	STYLE		-s, --style		default 4; choose backgroud of figures (1-7). This function is for every plots excepts heatmap.
 
-LIMIT		-lim, --limit		default None; apply individual scale of “data”. This function is for every plots excepts heatmap. Split two numbers(e.g. limit 0 to 200 -> type 0 200) by space. Negative number required double quotation marks such as “negative number”.  Example; 0 100/“-1” 3
+	LIMIT		-lim, --limit		default None; apply individual scale of “data”. This function is for every plots excepts heatmap. Split two numbers(e.g. limit 0 to 200 -> type 0 200) by space. Negative number required double quotation marks such as “negative number”.  Example; 0 100/“-1” 3
 
-AXIS_CHANGE	-a, --axis_change	default off; flip axis in figures (on or off). This function is for every plots excepts heatmap.
+	AXIS_CHANGE	-a, --axis_change	default off; flip axis in figures (on or off). This function is for every plots excepts heatmap.
 
-LEGEND_POSITION	-lp, --legend_position	default right; choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). This function is for every plots excepts heatmap and scatter.
+	LEGEND_POSITION	-lp, --legend_position	default right; choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). This function is for every plots excepts heatmap and scatter.
 
-GEOM_POSITION	-gp, --geom_position	default 1; choose plot visualize types (geom position) from 1-4 in bar, density, and histogram
+	GEOM_POSITION	-gp, --geom_position	default 1; choose plot visualize types (geom position) from 1-4 in bar, density, and histogram
 
-CLUSTER_SELECT	-cs, --cluster_select	default on on; apply column and row cluster function for heatmap (on or off). Column is first and row is second, split two factor(on or off) by space. Example; on off
+	CLUSTER_SELECT	-cs, --cluster_select	default on on; apply column and row cluster function for heatmap (on or off). Column is first and row is second, split two factor(on or off) by space. Example; on off
 
-SCATTER_SELECT	-ss, --scatter_select	default None; type column of two samples for comparison in dot plot. Split samples by space. Example; sample1 sample2
+	SCATTER_SELECT	-ss, --scatter_select	default None; type column of two samples for comparison in dot plot. Split samples by space. Example; sample1 sample2
 
 
 
