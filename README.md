@@ -19,7 +19,7 @@ Required function
 
 	INPUT		-i, --input		input file name
 
-	TYPE		-t, --type		choose plot types (bar, box, density, dot_color, dot_shape, heatmap, histogram, line, scatter, or violin)
+	TYPE		-t, --type		choose plot types (bar, box, density, density_fill, dot_color, dot_shape, heatmap, histogram, line, scatter, or violin)
 
 
 General optional function
