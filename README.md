@@ -14,14 +14,15 @@ If you have any questions, email me (andoapi@gmail.com).
 
 HELP		-h, --help		show this help message and exit
 
-required function
 
+Required function
 
 INPUT		-i, --input		input file name
 
 TYPE		-t, --type		choose plot types (bar, box, density, dot_color, dot_shape, heatmap, histogram, line, scatter, or violin)
 
-general optional function
+
+General optional function
 
 OUTPUT		-o, --output		default output; output file name
 
@@ -36,20 +37,30 @@ ZSCORE		-zs, --zscore		default off; apply Z-score transformation in gene (on or 
 XAXIS		-x, --xaxis		default samples; choose x-axis (gene or sample)
 
 ZAXIS		-z, --zaxis		default gene; choose fill, color, or shape (gene or sample)
+
 COLOR		-c, --color		default 1; choose color type (1-10)
+
 LETTER_SIZE	-ls, --letter_size	default 8 10; type text and title size of legend and axis, respectively. Split two number by space. Example; 20 24
+
 FIGURE_SAVE_FORMAT	-f, --figure_save_format		default pdf; choose format of figures (eps, ps, tex (pictex), pdf, jpeg, tiff, png, bmp, svg)
+
 PLOT_SIZE	-p, -plot_size		default 7 7; type width and height of figure. Split two number by space. Example; 10 12
 
 
-optional parameter for individual plot types
+Optional parameter for individual plot types
 
 STYLE		-s, --style		default 4; choose backgroud of figures (1-7). This function is for every plots excepts heatmap.
+
 LIMIT		-lim, --limit		default None; apply individual scale of “data”. This function is for every plots excepts heatmap. Split two numbers(e.g. limit 0 to 200 -> type 0 200) by space. Negative number required double quotation marks such as “negative number”.  Example; 0 100/“-1” 3
+
 AXIS_CHANGE	-a, --axis_change	default off; flip axis in figures (on or off). This function is for every plots excepts heatmap.
+
 LEGEND_POSITION	-lp, --legend_position	default right; choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). This function is for every plots excepts heatmap and scatter.
+
 GEOM_POSITION	-gp, --geom_position	default 1; choose plot visualize types (geom position) from 1-4 in bar, density, and histogram
+
 CLUSTER_SELECT	-cs, --cluster_select	default on on; apply column and row cluster function for heatmap (on or off). Column is first and row is second, split two factor(on or off) by space. Example; on off
+
 SCATTER_SELECT	-ss, --scatter_select	default None; type column of two samples for comparison in dot plot. Split samples by space. Example; sample1 sample2
 
 
@@ -148,17 +159,17 @@ Default of x-axis and z-axis are sample and gene, respectively.
 Following table shows which axis you can modify. Label x and z can modify by (-x, --xaxis) and (-z, --zaxis).  
 
 
-plots		x-axis	y-axis	color/shape
-bar		x	data	z
-box		x	data	x
-density		data	density	x
-dot_color	x	data	z
-dot_shape	x	data	z
-heatmap		sample	gene	
-histogram	data	count	x
-line		x	data	z
-scatter		
-violin		x	data	x
+	plots		x-axis	y-axis	color/shape
+	bar		x	data	z
+	box		x	data	x
+	density		data	density	x
+	dot_color	x	data	z
+	dot_shape	x	data	z
+	heatmap		sample	gene	
+	histogram	data	count	x
+	line		x	data	z
+	scatter		
+	violin		x	data	x
 
 
 
@@ -167,30 +178,30 @@ violin		x	data	x
 ggplot2 color (https://ggplot2.tidyverse.org/reference/scale_brewer.html) is using for color setting for plots excepts heatmap. Color in heatmap is custom setting. Setting is following;
 
 
-settings(ggplot2)	ggplot2_color					color description
-1			scale_fill/color_hue()				standard ggplot2 setting; read ggplot2 website (https://ggplot2.tidyverse.org/reference/scale_hue.html)
-2			scale_fill/color_viridis_d(option = "C")	read ggplot2 website (https://ggplot2.tidyverse.org/reference/scale_viridis.html)
-3			scale_fill/color_viridis_d(option = "D")	read ggplot2 website (https://ggplot2.tidyverse.org/reference/scale_viridis.html)
-4			scale_fill/color_grey()				black to white	
-5			scale_fill/color_brewer(palette ="RdBu")	red to blue (maximum 9 colors)
-6			scale_fill/color_brewer(palette ="RdYlBu")	red, yellow, to blue (maximum 9 colors)
-7			scale_fill/color_brewer(palette ="Reds")	red to white (maximum 9 colors)
-8			scale_fill/color_brewer(palette ="Blues")	red to blue (maximum 9 colors)
-9			scale_fill/color_brewer(palette ="Paired")	Paired palette; read ggplot2 website (maximum 12 colors)
-10			scale_fill/color_brewer(palette = "Set1")	Set1 palette; read ggplot2 website (maximum 9 colors)
+	settings(ggplot2)	ggplot2_color					color description
+	1			scale_fill/color_hue()				standard ggplot2 setting; read ggplot2 website (https://ggplot2.tidyverse.org/reference/scale_hue.html)
+	2			scale_fill/color_viridis_d(option = "C")	read ggplot2 website (https://ggplot2.tidyverse.org/reference/scale_viridis.html)
+	3			scale_fill/color_viridis_d(option = "D")	read ggplot2 website (https://ggplot2.tidyverse.org/reference/scale_viridis.html)
+	4			scale_fill/color_grey()				black to white	
+	5			scale_fill/color_brewer(palette ="RdBu")	red to blue (maximum 9 colors)
+	6			scale_fill/color_brewer(palette ="RdYlBu")	red, yellow, to blue (maximum 9 colors)
+	7			scale_fill/color_brewer(palette ="Reds")	red to white (maximum 9 colors)
+	8			scale_fill/color_brewer(palette ="Blues")	red to blue (maximum 9 colors)
+	9			scale_fill/color_brewer(palette ="Paired")	Paired palette; read ggplot2 website (maximum 12 colors)
+	10			scale_fill/color_brewer(palette = "Set1")	Set1 palette; read ggplot2 website (maximum 9 colors)
 
 
-settings(pheatmap)	color description
-1			red, white, to blue
-2			red, yellow, to blue
-3			red, white, to green
-4			purple, white, to green
-5			red, white, to black
-6			yellow to blue
-7			black to white
-8			red to white
-9			blue to white
-10			green to white
+	settings(pheatmap)	color description
+	1			red, white, to blue
+	2			red, yellow, to blue
+	3			red, white, to green
+	4			purple, white, to green
+	5			red, white, to black
+	6			yellow to blue
+	7			black to white
+	8			red to white
+	9			blue to white
+	10			green to white
 
 
 
@@ -216,14 +227,14 @@ Change width and height of figure, respectively. Split two number by space. Defa
 Style uses ggplot2 theme function (https://ggplot2.tidyverse.org/reference/ggtheme.html) to change 7 different background of figure. This function is for every plots excepts heatmap.
 
 
-settings	set_style		set_context
-1		theme_void()no 		line with white
-2		theme_classic()		axis line with white
-3		theme_minimal()		subline with white
-4		theme_bw()		grey axis and subline with white
-5		theme_linedraw()	black axis and subline with white
-6		theme_grey()		subline with grey
-7		theme_dark()		subline with black
+	settings	set_style		set_context
+	1		theme_void()no 		line with white
+	2		theme_classic()		axis line with white
+	3		theme_minimal()		subline with white
+	4		theme_bw()		grey axis and subline with white
+	5		theme_linedraw()	black axis and subline with white
+	6		theme_grey()		subline with grey
+	7		theme_dark()		subline with black
 
 
 
@@ -250,11 +261,11 @@ Choose legend position of figures (none, left, right, bottom, top, or two-elemen
 Choose plot visualize types (geom position) from 1-4 in bar, density, and histogram using ggplot2 position function (https://ggplot2.tidyverse.org/reference/position_dodge.html). 
 
 
-settings	position	description
-1		stack		stack style figure
-2		dodge		dodge style figure
-3		dodge2		dodge style figure
-4		fill		fill entire figure
+	settings	position	description
+	1		stack		stack style figure
+	2		dodge		dodge style figure
+	3		dodge2		dodge style figure
+	4		fill		fill entire figure
 
 
  
