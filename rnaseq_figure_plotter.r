@@ -14,7 +14,7 @@ parser <- ArgumentParser(usage='Rscript rnaseq_figure_plotter.r -i input_file -t
 
 #required parameter
 parser$add_argument('-i','--input', help = 'input file name', required = TRUE)
-parser$add_argument('-t','--type', help = 'choose plot types (bar, box, dot_color, dot_shape, density, heatmap, histogram, line, scatter, or violin)', required = TRUE)
+parser$add_argument('-t','--type', help = 'choose plot types (bar, box, dot_color, dot_shape, density, density_fill, heatmap, histogram, line, scatter, or violin)', required = TRUE)
 
 #general optional parameter
 parser$add_argument('-o', '--output', help = 'default output; output file name',default = "output")
@@ -260,6 +260,12 @@ ggplot_density <- function() {ggplot(data_set, aes(x=yd, color = xd)) +
     palette_select_color() +
     labs(y = "count", x = "data", color = xaxis)}
 
+#density_fill_plot
+ggplot_density_fill <- function() {ggplot(data_set, aes(x=yd, fill = xd)) +
+    geom_density(alpha = 0.7, position = geom_position()) +
+    palette_select_fill() +
+    labs(y = "count", x = "data", fill = xaxis)}
+
 #histogram_plot
 ggplot_histogram <- function() {ggplot(data_set, aes(x=yd, fill = xd)) +
     geom_histogram(bin = 30, position = geom_position())+
@@ -323,6 +329,8 @@ ggplot_types<- function(){if (args$type == "line"){
                     return (ggplot_violin())
                 } else if (args$type == "density"){
                     return (ggplot_density())
+                } else if (args$type == "density_fill"){
+                    return (ggplot_density_fill())
                 } else if (args$type == "histogram"){
                     return (ggplot_histogram())
                 } else if (args$type == "scatter"){
@@ -337,7 +345,7 @@ ggplot_types<- function(){if (args$type == "line"){
 #limit setting 
 limit <- function(){if (args$limit[1] != 0 || args$limit[2] != 0){
                         if (args$type == "scatter" ){lims(x = args$limit, y = args$limit)
-                        }else if (args$type == "histogram" || args$type == "density"){lims(x = args$limit)
+                        }else if (args$type == "histogram" || args$type == "density"|| args$type == "density_fill"){lims(x = args$limit)
                         }else {lims(y = args$limit)
                         }
                     }
