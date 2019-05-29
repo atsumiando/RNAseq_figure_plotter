@@ -12,6 +12,10 @@ If you have any questions, email me (andoapi@gmail.com).
 
 # parameter of rnaseq_figure_plotter
 
+Usage
+
+	Rscript rnaseq_figure_plotter.r -i input_file -t bar -o output_file -g gene_list_file  ... -c 5 -s 6
+
 	HELP		-h, --help		show this help message and exit
 
 
@@ -46,24 +50,24 @@ General optional function
 
 	FIGURE_SAVE_FORMAT	-f, --figure_save_format		default pdf; choose format of figures (eps, ps, tex (pictex), pdf, jpeg, tiff, png, bmp, svg)
 
-	PLOT_SIZE	-p, -plot_size		default 10 10; type width and height of figure. Split two number by space. Example; 10 12
-
 
 Optional parameter for individual plot types
 
-	STYLE		-s, --style		default 4; choose backgroud of figures (1-7). This function is for every plots excepts heatmap.
+	STYLE		-s, --style		default 4; choose backgroud of figures (1-7). This function works for any plots except heatmap.
 
 	LIMIT		-lim, --limit		default None; apply individual scale of “data”. This function is for every plots excepts heatmap. Split two numbers(e.g. limit 0 to 200 -> type 0 200) by space. Negative number required double quotation marks such as “negative number”.  Example; 0 100/“-1” 3
 
-	AXIS_CHANGE	-a, --axis_change	default off; flip axis in figures (on or off). This function is for every plots excepts heatmap.
+	AXIS_CHANGE	-a, --axis_change	default off; flip axis in figures (on or off). This function works for any plots except heatmap.
 
-	LEGEND_POSITION	-lp, --legend_position	default right; choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). This function is for every plots excepts heatmap and scatter.
+	LEGEND_POSITION	-lp, --legend_position	default right; choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). This function works for any plots except heatmap and scatter.
 
 	GEOM_POSITION	-gp, --geom_position	default 1; choose plot visualize types (geom position) from 1-4 in bar, density, and histogram
 
 	CLUSTER_SELECT	-cs, --cluster_select	default on on; apply column and row cluster function for heatmap (on or off). Column is first and row is second, split two factor(on or off) by space. Example; on off
 
 	SCATTER_SELECT	-ss, --scatter_select	default None; type column of two samples for comparison in dot plot. Split samples by space. Example; sample1 sample2
+	
+	PLOT_SIZE	-p, -plot_size		default 7 7; type width and height of figure. Split two number by space. This function works for any plots except heatmap.Example; 10 12
 
 
 
@@ -221,14 +225,9 @@ Provided save figure format. Default is pdf, you can also choose eps, ps, tex (p
 
 
 
-# change figure size (-p, --plot_size)
-
-Change width and height of figure, respectively. Split two number by space. Default is both width and height for 10. For heatmap, it has already added 75 for width and 10 for hight to plot in square shape. Example; 10 12
-
-
-
 # style settings (-s, --style)
-Style uses ggplot2 theme function (https://ggplot2.tidyverse.org/reference/ggtheme.html) to change 7 different background of figure. This function is for every plots excepts heatmap.
+
+Style uses ggplot2 theme function (https://ggplot2.tidyverse.org/reference/ggtheme.html) to change 7 different background of figure. This function works for any plots except heatmap.
 
 
 	settings	set_style		set_context
@@ -256,7 +255,7 @@ Change x and y axis by on of (-a, --axis_change) function. This function is for 
 
 # change legend position (-lp, --legend_position)
 
-Choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). Default is right. This function is for every plots excepts heatmap.
+Choose legend position of figures (none, left, right, bottom, top, or two-element numeric vector). Default is right. This function works for any plots except heatmap.
 
 
 
@@ -284,6 +283,12 @@ Trun on and off of pheatmap clustering function in column and/or row. Default is
 This code is required for scattered plot. 
 
 (-ss, --scatter_setting) function required dataset "x-axis y-axis" for scattered plot and split samples or genes by space. Example of (-ss, --scatter_setting) is "sample1 sample3". Color cannot change in scatter plot function. 
+
+
+
+# change figure size (-p, --plot_size)
+
+Change width and height of figure, respectively. Split two number by space. Default is both width and height for 7. This function works for any plots except heatmap. Example; 10 12
 
 
 
