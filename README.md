@@ -16,17 +16,25 @@ HELP		-h, --help		show this help message and exit
 
 required function
 
+
 INPUT		-i, --input		input file name
+
 TYPE		-t, --type		choose plot types (bar, box, density, dot_color, dot_shape, heatmap, histogram, line, scatter, or violin)
 
 general optional function
 
 OUTPUT		-o, --output		default output; output file name
+
 GENE		-g, --gene		file name of specific gene ID list; generate "output"_gene_selection.txt file
+
 LOG2		-l, --log		default 0; calculate log value (log2; 2, log10; 10, loge; e)
-LOG2_NUMBER	-lgn, --log_number		default 0.000000001; add number to avoid -inf for log value
+
+LOG2_NUMBER	-lgn, --log_number	default 0.000000001; add number to avoid -inf for log value
+
 ZSCORE		-zs, --zscore		default off; apply Z-score transformation in gene (on or off). --log function should be 0 to apply --zscore function.  
+
 XAXIS		-x, --xaxis		default samples; choose x-axis (gene or sample)
+
 ZAXIS		-z, --zaxis		default gene; choose fill, color, or shape (gene or sample)
 COLOR		-c, --color		default 1; choose color type (1-10)
 LETTER_SIZE	-ls, --letter_size	default 8 10; type text and title size of legend and axis, respectively. Split two number by space. Example; 20 24
