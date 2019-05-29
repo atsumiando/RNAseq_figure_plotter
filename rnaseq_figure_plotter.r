@@ -28,7 +28,7 @@ parser$add_argument('-c', '--color',help = 'default 1; choose color type (0-10)'
 parser$add_argument('-cst', '--custom_color',help = 'default None; customize color scales. Split colors by space. Example; red white blue green yellow', default = "0", nargs= '+')
 parser$add_argument('-ls', '--letter_size',help = 'default 8 10; type text and title size of legend and axis, respectively. Split two number by space. Example; 20 24', default = c(8,10),type = "double", nargs= 2)
 parser$add_argument('-f', '--figure_save_format',help = 'default pdf; choose format of figures (eps, ps, tex (pictex), pdf, jpeg, tiff, png, bmp, svg)', default = 'pdf')
-parser$add_argument('-p', '--plot_size',help = 'default 7 7; type width and height of figure. Split two number by space. Example; 10 12 ', default = c(7,7), type = "double", nargs= 2)
+parser$add_argument('-p', '--plot_size',help = 'default 10 10; type width and height of figure. Split two number by space. Example; 10 12 ', default = c(10,10), type = "double", nargs= 2)
 
 #optional parameter for individual plot types
 parser$add_argument('-s', '--style',help = 'default 4; choose backgroud of figures (1-7). This function is for every plots excepts heatmap.', default = 4, type = "integer")
@@ -295,16 +295,16 @@ ggplot_violin <- function() {ggplot(data_set, aes(x=xd, y=yd, fill = xd)) +
     labs(x = xaxis, y = "data", fill = xaxis)}
 
 #heatmap_plot with cluseter on in column and row
-pheatmap_heatmap_cc_cr <- function() {pheatmap(data_original, color = colorRampPalette(col_heatmap())(100), fontsize_col= args$letter_size[2], fontsize_row= args$letter_size[2], cluster_rows=T, cluster_cols=T, cellwidth =args$plot_size[1], cellheight = args$plot_size[2], filename= plot_name)}
+pheatmap_heatmap_cc_cr <- function() {pheatmap(data_original, color = colorRampPalette(col_heatmap())(100), fontsize_col= args$letter_size[2], fontsize_row= args$letter_size[2], cluster_rows=T, cluster_cols=T, cellwidth =90+args$plot_size[1], cellheight = 10+args$plot_size[2], filename= plot_name)}
 
 #heatmap_plot with cluseter on in column
-pheatmap_heatmap_cc <- function() {pheatmap(data_original, color = colorRampPalette(col_heatmap())(100), fontsize_col= args$letter_size[2], fontsize_row= args$letter_size[2], cluster_rows=F, cluster_cols=T, cellwidth =args$plot_size[1], cellheight = args$plot_size[2], filename = plot_name)}
+pheatmap_heatmap_cc <- function() {pheatmap(data_original, color = colorRampPalette(col_heatmap())(100), fontsize_col= args$letter_size[2], fontsize_row= args$letter_size[2], cluster_rows=F, cluster_cols=T, cellwidth =90+args$plot_size[1], cellheight = 10+args$plot_size[2], filename = plot_name)}
 
 #heatmap_plot with cluseter on in row
-pheatmap_heatmap_cr <- function() {pheatmap(data_original, color = colorRampPalette(col_heatmap())(100), fontsize_col= args$letter_size[2], fontsize_row= args$letter_size[2], cluster_rows=T, cluster_cols=F, cellwidth =args$plot_size[1], cellheight = args$plot_size[2], filename = plot_name)}
+pheatmap_heatmap_cr <- function() {pheatmap(data_original, color = colorRampPalette(col_heatmap())(100), fontsize_col= args$letter_size[2], fontsize_row= args$letter_size[2], cluster_rows=T, cluster_cols=F, cellwidth =90+args$plot_size[1], cellheight = 10+args$plot_size[2], filename = plot_name)}
 
 #heatmap_plot with cluseter off
-pheatmap_heatmap <- function() {pheatmap(data_original, color = colorRampPalette(col_heatmap())(100), fontsize_col= args$letter_size[2], fontsize_row= args$letter_size[2], cluster_rows=F, cluster_cols=F, cellwidth =args$plot_size[1], cellheight = args$plot_size[2], filename = plot_name)}
+pheatmap_heatmap <- function() {pheatmap(data_original, color = colorRampPalette(col_heatmap())(100), fontsize_col= args$letter_size[2], fontsize_row= args$letter_size[2], cluster_rows=F, cluster_cols=F, cellwidth =90+args$plot_size[1], cellheight = 10+args$plot_size[2], filename = plot_name)}
 
 
 
