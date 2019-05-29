@@ -39,6 +39,7 @@ General optional function
 	ZAXIS		-z, --zaxis		default gene; choose fill, color, or shape (gene or sample)
 
 	COLOR		-c, --color		default 1; choose color type (1-10)
+	CUSTOM_COLOR	-cst, -custom_color	default None; customize color scales. Split colors by space. Example; red white blue green yellow
 
 	LETTER_SIZE	-ls, --letter_size	default 8 10; type text and title size of legend and axis, respectively. Split two number by space. Example; 20 24
 
@@ -173,7 +174,7 @@ Following table shows which axis you can modify. Label x and z can modify by (-x
 
 
 
-# color settings (-c, --color)
+# color settings (-c, --color) or (-cst, --custom_color)
 
 ggplot2 color (https://ggplot2.tidyverse.org/reference/scale_brewer.html) is using for color setting for plots excepts heatmap. Color in heatmap is custom setting. Setting is following;
 
@@ -203,6 +204,8 @@ ggplot2 color (https://ggplot2.tidyverse.org/reference/scale_brewer.html) is usi
 	9			blue to white
 	10			green to white
 
+
+You can also customize your color by using (-cst, --custom_color) function. When (-cst, --custom_color) function is on, (-c, --color) function is off. Split colors by space. Example of custom color settings are -cst red white blue green yellow.
 
 
 # letter size setting (-ls, --letter_size_)
