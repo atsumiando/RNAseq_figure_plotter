@@ -39,6 +39,7 @@ General optional function
 	ZAXIS		-z, --zaxis		default gene; choose fill, color, or shape (gene or sample)
 
 	COLOR		-c, --color		default 1; choose color type (1-10)
+	
 	CUSTOM_COLOR	-cst, -custom_color	default None; customize color scales. Split colors by space. Example; red white blue green yellow
 
 	LETTER_SIZE	-ls, --letter_size	default 8 10; type text and title size of legend and axis, respectively. Split two number by space. Example; 20 24
