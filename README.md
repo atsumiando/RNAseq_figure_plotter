@@ -223,7 +223,7 @@ Provided save figure format. Default is pdf, you can also choose eps, ps, tex (p
 
 # change figure size (-p, --plot_size)
 
-Change width and height of figure, respectively. Split two number by space. Default is both width and height for 10. Example; 10 12
+Change width and height of figure, respectively. Split two number by space. Default is both width and height for 10. For heatmap, it has already added 75 for width and 10 for hight to plot in square shape. Example; 10 12
 
 
 
