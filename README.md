@@ -32,6 +32,8 @@ General optional function
 
 	GENE		-g, --gene		file name of specific gene ID list; generate "output"_gene_selection.txt file
 
+	REMOVE_COL	-r, --remove_col	default None; remove specific columns (samples) from input file. Split column name by space. Example; sample1 sample2 sample3
+	
 	LOG2		-l, --log		default 0; calculate log value (log2; 2, log10; 10, loge; e)
 
 	LOG2_NUMBER	-lgn, --log_number	default 0.000000001; add number to avoid -inf for log value
@@ -124,6 +126,20 @@ Example of "output"_gene_selection.txt file is following;
 		"geneA"	1	3	5.5	7	2
 		"geneF"	2	2	2	2	2
 		"geneG"	0.01	0.03	0.5	0.07	0.02
+
+
+
+# remove column (-r, --remove_col)
+Remove specific column (sample) from input file. Split column name by space. Example; -r sample1 sample4 sample5 looks as following;
+
+			sample2	sample3
+		geneA	3	5.5
+		geneB	267	55
+		geneC	0.65	9.5
+		geneD	356	78
+		geneE	3001	5500
+		geneF	2	2
+		geneG	0.03	0.5
 
 
 
