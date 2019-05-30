@@ -32,7 +32,7 @@ General optional function
 
 	GENE		-g, --gene		file name of specific gene ID list; generate "output"_gene_selection.txt file
 
-	REMOVE_COL	-r, --remove_col	default None; remove specific columns (samples) from input file. Split column name by space. Example; sample1 sample2 sample3
+	REMOVE_COL	-r, --remove_col	default None; remove specific columns (samples) from input file. Split column names by space. Example; sample1 sample2 sample3
 	
 	LOG2		-l, --log		default 0; calculate log value (log2; 2, log10; 10, loge; e)
 
@@ -130,7 +130,7 @@ Example of "output"_gene_selection.txt file is following;
 
 
 # remove column (-r, --remove_col)
-Remove specific column (sample) from input file. Split column name by space. Example; -r sample1 sample4 sample5 looks as following;
+Remove specific columns (samples) from input file. Split column names by space. Example; -r sample1 sample4 sample5 looks as following;
 
 			sample2	sample3
 		geneA	3	5.5
