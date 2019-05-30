@@ -309,4 +309,4 @@ Change width and height of figure, respectively. Split two number by space. Defa
 
 
 # example of usage 
-Easy instruction and example usage is in introduction_rnaseq_figure_plotter_R.pdf.  
+Easy instruction and example usages are in introduction_rnaseq_figure_plotter_R.pdf.  
