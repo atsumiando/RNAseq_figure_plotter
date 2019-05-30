@@ -19,6 +19,7 @@ parser$add_argument('-t','--type', help = 'choose plot types (bar, box, dot_colo
 #general optional parameter
 parser$add_argument('-o', '--output', help = 'default output; output file name',default = "output")
 parser$add_argument('-g', '--gene',help = 'default None; file name of specific gene ID list; generate "output"_gene_selection.txt file', default = " ")
+parser$add_argument('-r', '--remove_col',help = 'default None; remove specific columns (samples) from input file. Split column name by space. Example; sample1 sample2 sample3', default = " ", nargs= '+')
 parser$add_argument('-l', '--log',help = 'default None(0); calculate log value (log2; 2, log10; 10, loge; e)',default = "0")
 parser$add_argument('-lgn', '--log_number',help = 'default 0.000000001; add number to avoid -inf for log value',default = 0.000000001, type = "double")
 parser$add_argument('-zs', '--zscore',help = 'default off; apply Z-score transformation in gene (on or off). --log function should be 0 to apply --zscore function.',default = "off")
@@ -63,7 +64,7 @@ library("tidyverse")
 
 
 #version
-version <- "0.0.2"
+version <- "0.0.3"
 paste("You are using rnaseq_figure_plotter(R) version; ", version)
 
 
@@ -98,6 +99,9 @@ data_original_loge <- log(data_original_raw+ args$log_number)
 zscore_transformation <- na.omit(t(scale(t(data_original_log2), scale=TRUE, center=TRUE)))
 write.table(zscore_transformation, file = "z_score.txt", sep = "\t")
 data_original_zscore <- read.table("z_score.txt", header = T)
+
+if (grepl("\\w", args$remove_col[1])){remove <- as.factor(c(args$remove))
+    data_raw <-subset(data_raw, select = -c(remove))}
 
 if (args$log == "0"){if (args$zscore == "off"){
 			data_original <- data_original_raw
